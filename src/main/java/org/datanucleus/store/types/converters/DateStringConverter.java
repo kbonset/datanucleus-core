@@ -51,7 +51,7 @@ public class DateStringConverter implements TypeConverter<Date, String>
         if (formatInfo.formatter == null)
         {
             // TODO Handle millisecs
-            formatInfo.formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+            formatInfo.formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         }
         return formatInfo.formatter;
     }
