@@ -116,7 +116,7 @@
         </dependency>
         <dependency>
             <groupId>javax.management</groupId>
-            <artifactId>jmx</artifactId>
+            <artifactId>jmxri</artifactId>
             <version>1.2.1</version>
             <optional>true</optional>
         </dependency>
