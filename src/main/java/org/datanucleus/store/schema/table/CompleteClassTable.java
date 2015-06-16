@@ -439,6 +439,7 @@ public class CompleteClassTable implements Table
         }
 
         VersionMetaData vermd = cmd.getVersionMetaDataForClass();
+        
         if (vermd != null)
         {
             // Add surrogate version column
@@ -462,6 +463,18 @@ public class CompleteClassTable implements Table
                     }
                 }
                 this.versionColumn = col;
+            }
+            else
+            {
+                if (this.versionColumn == null) 
+                {
+                    AbstractMemberMetaData mmd  = cmd.getMetaDataForMember(vermd.getFieldName());
+                    MemberColumnMapping mapping = getMemberColumnMappingForMember(mmd);
+                    if (mapping != null && mapping.getNumberOfColumns() == 1) 
+                    {
+                        this.versionColumn = mapping.getColumn(0);
+                    }
+                }
             }
         }
 
